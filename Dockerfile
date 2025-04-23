@@ -13,7 +13,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends curl tar ca-cer
   && tar -xzf frp.tar.gz --strip-components=1 \
   && chmod +x /opt/frps /opt/frpc \
   && rm frp.tar.gz \
-  && apt-get purge -y curl tar && apt-get autoremove -y && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
 # By default run frps, override in Kubernetes if needed
