@@ -72,3 +72,4 @@ args: ["-c", "/etc/frp/frps.toml"]
 - No config or secrets are baked into the image.
 - Use secrets/configmaps to pass configuration at runtime.
 - Keep your `frps` token secure!
+
