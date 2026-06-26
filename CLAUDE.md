@@ -7,7 +7,7 @@ Docker image packaging [FRP (Fast Reverse Proxy)](https://github.com/fatedier/fr
 ## Stack
 
 - Docker (Debian bookworm-slim base)
-- FRP v0.62.0 (server + client binaries)
+- FRP v0.69.1 (server + client binaries)
 - Harbor registry for image distribution
 - Kubernetes for deployment (ConfigMaps for runtime config)
 - Pipelines-as-Code (PaC) for CI — in-repo `.tekton/` PipelineRuns
@@ -24,13 +24,13 @@ Docker image packaging [FRP (Fast Reverse Proxy)](https://github.com/fatedier/fr
 ### Build image
 
 ```bash
-docker build -t harbor.harokilabs.com/infra/frp:0.62.0 .
+docker build -t harbor.harokilabs.com/infra/frp:0.69.1 .
 ```
 
 ### Build with custom FRP version
 
 ```bash
-docker build --build-arg FRP_VERSION=0.63.0 -t harbor.harokilabs.com/infra/frp:0.63.0 .
+docker build --build-arg FRP_VERSION=0.69.2 -t harbor.harokilabs.com/infra/frp:0.69.2 .
 ```
 
 ### Push to Harbor
@@ -56,4 +56,4 @@ docker push harbor.harokilabs.com/infra/frp:<version>
 ## Commit Style
 
 - Conventional commits with scope: `docker:`, `readme:`, `k8s:`, `ci:`
-- Lowercase descriptions: `docker: bump frp to 0.63.0`
+- Lowercase descriptions: `docker: bump frp to 0.69.1`

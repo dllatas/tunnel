@@ -1,7 +1,7 @@
 FROM debian:bookworm-20250407-slim
 
 # Set version as build arg (optional override for later updates)
-ARG FRP_VERSION=0.62.0
+ARG FRP_VERSION=0.69.1
 ENV FRP_VERSION=${FRP_VERSION}
 
 # Set working directory

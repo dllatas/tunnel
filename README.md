@@ -14,7 +14,7 @@ via volumes or Kubernetes ConfigMaps.
 
 ```bash
 docker run --rm -v $(pwd)/frps.toml:/etc/frp/frps.toml \
-  harbor.harokilabs.com/infra/frp:0.62.0 \
+  harbor.harokilabs.com/infra/frp:0.69.1 \
   -c /etc/frp/frps.toml
 ```
 
@@ -22,7 +22,7 @@ docker run --rm -v $(pwd)/frps.toml:/etc/frp/frps.toml \
 
 ```bash
 docker run --rm -v $(pwd)/frpc.toml:/etc/frp/frpc.toml \
-  harbor.harokilabs.com/infra/frp:0.62.0 \
+  harbor.harokilabs.com/infra/frp:0.69.1 \
   /opt/frpc -c /etc/frp/frpc.toml
 ```
 
@@ -31,14 +31,14 @@ docker run --rm -v $(pwd)/frpc.toml:/etc/frp/frpc.toml \
 > Requires Docker and internet access to GitHub.
 
 ```bash
-docker build -t harbor.harokilabs.com/infra/frp:0.62.0 .
+docker build -t harbor.harokilabs.com/infra/frp:0.69.1 .
 ```
 
 ### Push to Harbor
 
 ```bash
 docker login harbor.harokilabs.com
-docker push harbor.harokilabs.com/infra/frp:0.62.0
+docker push harbor.harokilabs.com/infra/frp:0.69.1
 ```
 
 ## Included Tools
@@ -72,4 +72,3 @@ args: ["-c", "/etc/frp/frps.toml"]
 - No config or secrets are baked into the image.
 - Use secrets/configmaps to pass configuration at runtime.
 - Keep your `frps` token secure!
-
