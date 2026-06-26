@@ -31,7 +31,7 @@ docker run --rm -v $(pwd)/frpc.toml:/etc/frp/frpc.toml \
 > Requires Docker and internet access to GitHub.
 
 ```bash
-docker build -t harbor.harokilabs.com/infra/frp:0.69.1 .
+docker build --platform=linux/amd64 -t harbor.harokilabs.com/infra/frp:0.69.1 .
 ```
 
 ### Push to Harbor

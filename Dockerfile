@@ -1,4 +1,4 @@
-FROM debian:bookworm-20250407-slim
+FROM debian:trixie-slim
 
 # Set version as build arg (optional override for later updates)
 ARG FRP_VERSION=0.69.1
