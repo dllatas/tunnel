@@ -46,6 +46,12 @@ docker push harbor.harokilabs.com/infra/frp:<version>
 - **No config or secrets baked into the image** — always supplied at runtime via volumes or ConfigMaps
 - Dependencies installed during build are cleaned up to keep the image minimal
 
+## Netcup Deploy
+
+- `ENV=staging`: ArgoCD app `tunnel-server`, netcup-apps branch `codex/tunnel-server`, path `chart`, release `tunnel-server`, namespace `tunnel`; verified from live ArgoCD app and netcup-apps branch on 2026-06-26.
+- Image reference lives in `netcup-apps` branch `codex/tunnel-server` at `chart/values.yaml` under `tunnelDeployments.deployments[].spec.template.spec.containers[].image`.
+- CI publishes deployable images to `harbor.harokilabs.com/staging/tunnel:<full-commit-sha>` on tunnel `master` pushes; prefer immutable SHA tags for GitOps deploys.
+
 ## Editing Rules
 
 - Keep the Dockerfile single-stage and minimal
