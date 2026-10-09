@@ -12,3 +12,5 @@ Step schema rejected the previous Step key and accepts the corrected definitions
 Budgets remain provisional pending controlled runtime sampling. [skip tkn]
 
 2026-10-09 node-capacity review: replace provisional 8Gi per-step memory limits with 4Gi. Each general node has only about 7.75Gi allocatable RAM; an 8Gi limit cannot contain a single build before node exhaustion. Keep requests, CPU and storage budgets unchanged. This interim ceiling has headroom over the representative observed Go/Buildah footprints; application-specific sizing remains pending, and these observations do not prove other build paths. Preserve existing lower bounds where already specified. [skip tkn]
+
+2026-10-09 full v1 PipelineRun API check: preserve the configured CI service account under spec.taskRunTemplate.serviceAccountName. The legacy spec.serviceAccountName field is not part of the installed v1 schema. Complete PipelineRun specs now validate against the installed API, in addition to the strict Step resource check. [skip tkn]
