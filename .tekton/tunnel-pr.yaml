@@ -91,6 +91,15 @@ spec:
           steps:
             - name: build-image
               image: quay.io/buildah/stable:v1.39.2
+              computeResources:
+                requests:
+                  cpu: "1"
+                  memory: 2Gi
+                  ephemeral-storage: 10Gi
+                limits:
+                  cpu: "4"
+                  memory: 4Gi
+                  ephemeral-storage: 20Gi
               script: |
                 #!/usr/bin/env bash
                 set -euo pipefail
@@ -118,12 +127,12 @@ spec:
                   buildah push $AUTH_FLAG "$IMAGE_REPO:$IMAGE_BRANCH_TAG"
                 fi
   taskRunTemplate:
+    serviceAccountName: ci-services
     podTemplate:
       securityContext:
         fsGroup: 65532
       nodeSelector:
         harokilabs.com/capacity-class: general
-  serviceAccountName: ci-services
   workspaces:
     - name: source
       volumeClaimTemplate:
